@@ -19,3 +19,12 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# vim poop
+**.swp
+**.swo
+**.swn
+*.un~
+
+
+public/webshims
