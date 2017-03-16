@@ -1,0 +1,61 @@
+%h1 Listing lodgings
+
+%table
+  %thead
+    %tr
+      %th Destination ref
+      %th Region ref
+      %th Company name
+      %th Address line one
+      %th Address line two
+      %th City
+      %th State
+      %th Zip
+      %th Phone
+      %th Reservation
+      %th Fax
+      %th Url
+      %th Contact
+      %th Season
+      %th Email
+      %th Details
+      %th Mask2id ref
+      %th Expires at
+      %th Paid at
+      %th Customer status notes
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @lodgings.each do |lodging|
+      %tr
+        %td= lodging.destination_ref
+        %td= lodging.region_ref
+        %td= lodging.company_name
+        %td= lodging.address_line_one
+        %td= lodging.address_line_two
+        %td= lodging.city
+        %td= lodging.state
+        %td= lodging.zip
+        %td= lodging.phone
+        %td= lodging.reservation
+        %td= lodging.fax
+        %td= lodging.url
+        %td= lodging.contact
+        %td= lodging.season
+        %td= lodging.email
+        %td= lodging.details
+        %td= lodging.mask2id_ref
+        %td= lodging.expires_at
+        %td= lodging.paid_at
+        %td= lodging.customer_status_notes
+        %td= lodging.user
+        %td= link_to 'Show', lodging
+        %td= link_to 'Edit', edit_lodging_path(lodging)
+        %td= link_to 'Destroy', lodging, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lodging', new_lodging_path

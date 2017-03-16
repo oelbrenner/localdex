@@ -1,0 +1,69 @@
+%p#notice= notice
+
+%p
+  %b Destination ref:
+  = @lodging.destination_ref
+%p
+  %b Region ref:
+  = @lodging.region_ref
+%p
+  %b Company name:
+  = @lodging.company_name
+%p
+  %b Address line one:
+  = @lodging.address_line_one
+%p
+  %b Address line two:
+  = @lodging.address_line_two
+%p
+  %b City:
+  = @lodging.city
+%p
+  %b State:
+  = @lodging.state
+%p
+  %b Zip:
+  = @lodging.zip
+%p
+  %b Phone:
+  = @lodging.phone
+%p
+  %b Reservation:
+  = @lodging.reservation
+%p
+  %b Fax:
+  = @lodging.fax
+%p
+  %b Url:
+  = @lodging.url
+%p
+  %b Contact:
+  = @lodging.contact
+%p
+  %b Season:
+  = @lodging.season
+%p
+  %b Email:
+  = @lodging.email
+%p
+  %b Details:
+  = @lodging.details
+%p
+  %b Mask2id ref:
+  = @lodging.mask2id_ref
+%p
+  %b Expires at:
+  = @lodging.expires_at
+%p
+  %b Paid at:
+  = @lodging.paid_at
+%p
+  %b Customer status notes:
+  = @lodging.customer_status_notes
+%p
+  %b User:
+  = @lodging.user
+
+= link_to 'Edit', edit_lodging_path(@lodging)
+\|
+= link_to 'Back', lodgings_path

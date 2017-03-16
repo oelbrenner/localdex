@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination_ref: MyString
+  region_ref: MyString
+  company_name: MyString
+  address_line_one: MyString
+  address_line_two: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  reservation: MyString
+  fax: MyString
+  url: MyString
+  contact: MyString
+  season: MyString
+  email: MyString
+  details: MyString
+  mask2id_ref: MyString
+  expires_at: 2017-03-16 17:27:53
+  paid_at: 2017-03-16 17:27:53
+  customer_status_notes: MyString
+  user: one
+
+two:
+  destination_ref: MyString
+  region_ref: MyString
+  company_name: MyString
+  address_line_one: MyString
+  address_line_two: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  reservation: MyString
+  fax: MyString
+  url: MyString
+  contact: MyString
+  season: MyString
+  email: MyString
+  details: MyString
+  mask2id_ref: MyString
+  expires_at: 2017-03-16 17:27:53
+  paid_at: 2017-03-16 17:27:53
+  customer_status_notes: MyString
+  user: two

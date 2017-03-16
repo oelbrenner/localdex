@@ -1,0 +1,73 @@
+= form_for @lodging do |f|
+  - if @lodging.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lodging.errors.count, "error")} prohibited this lodging from being saved:"
+      %ul
+        - @lodging.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :destination_ref
+    = f.text_field :destination_ref
+  .field
+    = f.label :region_ref
+    = f.text_field :region_ref
+  .field
+    = f.label :company_name
+    = f.text_field :company_name
+  .field
+    = f.label :address_line_one
+    = f.text_field :address_line_one
+  .field
+    = f.label :address_line_two
+    = f.text_field :address_line_two
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :zip
+    = f.text_field :zip
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :reservation
+    = f.text_field :reservation
+  .field
+    = f.label :fax
+    = f.text_field :fax
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :contact
+    = f.text_field :contact
+  .field
+    = f.label :season
+    = f.text_field :season
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :details
+    = f.text_field :details
+  .field
+    = f.label :mask2id_ref
+    = f.text_field :mask2id_ref
+  .field
+    = f.label :expires_at
+    = f.datetime_select :expires_at
+  .field
+    = f.label :paid_at
+    = f.datetime_select :paid_at
+  .field
+    = f.label :customer_status_notes
+    = f.text_field :customer_status_notes
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'
