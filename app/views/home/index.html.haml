@@ -1,7 +1,10 @@
 %h1 Dashboard
 
-%p you are signed in as 
-%b= current_user.email
+%p you are signed in as: #{current_user.email}
 %br
 %br
-= link_to "view users in the system", users_path
+There are #{@users_count}
+= link_to "users in the system", users_path
+%br
+There are #{@lodgings_count}
+= link_to "lodgings in the system", lodgings_path

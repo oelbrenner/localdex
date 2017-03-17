@@ -10,8 +10,6 @@
       %th Url
       %th Contact
       %th Email
-      %th Expires at
-      %th Paid at
       %th
       %th
       %th
@@ -25,8 +23,6 @@
         %td= truncate(lodging.url, length: 37)
         %td= truncate(lodging.contact, length: 10)
         %td= truncate(lodging.email, length: 30)
-        %td= lodging.expires_at
-        %td= lodging.paid_at
         %td= link_to 'Show', lodging
         %td= link_to 'Edit', edit_lodging_path(lodging)
         %td= link_to 'Destroy', lodging, :method => :delete, :data => { :confirm => 'Are you sure?' }

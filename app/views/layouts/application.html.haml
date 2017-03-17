@@ -2,15 +2,33 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title localdex
+    %title LocalDex
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     - flash.each do |name, msg|
       = content_tag(:div, msg, class: "alert alert-info")
   %body
+    %nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse.bg-faded
+      %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      %a.navbar-brand.mb-0{:href => home_index_path} LocalDex
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li{:class => active_nav_class(home_index_path)}
+            %a.nav-link{:href => home_index_path} Dashboard
+          %li{:class => active_nav_class(users_path)}
+            %a.nav-link{:href => users_path} Users
+          %li{:class => active_nav_class(lodgings_path)}
+            %a.nav-link{:href => lodgings_path} Lodgings
+          %li.nav-item
+            %a.nav-link.disabled{:href => "#"} Attractions
+        %form.form-inline.my-2.my-lg-0
+          %input.form-control.mr-sm-2{:placeholder => "search for lodging..", :type => "text"}/
+          %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+
     .container
       .row
         .content
+          %br
           = yield
-
