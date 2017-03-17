@@ -24,8 +24,9 @@
           %li.nav-item
             %a.nav-link.disabled{:href => "#"} Attractions
         %form.form-inline.my-2.my-lg-0
-          %input.form-control.mr-sm-2{:placeholder => "search for lodging..", :type => "text"}/
-          %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+          = form_tag(lodgings_path, method: :get) do
+            = text_field_tag :term, params[:term], class: 'form-control mr-sm-2', placeholder: "search for lodging.." 
+            = submit_tag 'Search', class: 'button btn btn-outline-success my-2 my-sm-0'
 
     .container
       .row
