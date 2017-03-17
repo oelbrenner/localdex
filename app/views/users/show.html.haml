@@ -1,6 +1,43 @@
 %p#notice= notice
 
+.row
+  .col-md-4
+    %h1 User:  #{@user.email}
+  .col-md-4.mt-3
+    %p status: #{user_status(@user)}
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+.row.col-md-8.offset-md-2.mt-3
+  -case @lodgings.count
+  - when 0
+    This user does not have an associated lodging
+  - else
+    - @lodgings.each do |lodging|
+      %p= lodging.company_name
+
+.row.col-8.mt-5
+  %b change lodging for this user
+.row.col-8
+  %p select a lodging below:
+  = form_for @user do |f|
+    - if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      %br/
+      -# = f.collection_select :lodgings, Lodging.all , :id, :company_name
+      = f.collection_select(:lodging_ids, Lodging.all, :id, :company_name, {:prompt => "select lodging"} )
+      -# select :country_ids, Country.collect{|c| [c.name, c.id]}, {}, {multiple: true}
+      -# = f.text_field :email
+    
+  
+    .actions
+      = f.submit 'Change Logding', class: "btn btn-success"
+
+
+
+.actions.mt-5
+  = link_to 'Edit this user', edit_user_path(@user), class: "btn btn-warning"
+  = link_to 'Back', users_path, class: "btn btn-info"
