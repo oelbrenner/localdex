@@ -8,27 +8,31 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     - flash.each do |name, msg|
       = content_tag(:div, msg, class: "alert alert-info")
-  %body
-    %nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse.bg-faded
-      %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-        %span.navbar-toggler-icon
-      %a.navbar-brand.mb-0{:href => home_index_path} LocalDex
-      #navbarSupportedContent.collapse.navbar-collapse
-        %ul.navbar-nav.mr-auto
-          %li{:class => active_nav_class(home_index_path)}
-            %a.nav-link{:href => home_index_path} Dashboard
-          %li{:class => active_nav_class(users_path)}
-            %a.nav-link{:href => users_path} Users
-          %li{:class => active_nav_class(lodgings_path)}
-            %a.nav-link{:href => lodgings_path} Lodgings
-          %li.nav-item
-            %a.nav-link.disabled{:href => "#"} Attractions
-        %form.form-inline.my-2.my-lg-0
-          = form_tag(lodgings_path, method: :get) do
-            = text_field_tag :term, params[:term], class: 'form-control mr-sm-2', placeholder: "search for lodging.." 
-            = submit_tag 'Search', class: 'button btn btn-outline-success my-2 my-sm-0'
+  -if current_user
+    %body
+      %nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse.bg-faded
+        %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        %a.navbar-brand.mb-0{:href => home_index_path} LocalDex
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.navbar-nav.mr-auto
+            %li{:class => active_nav_class(home_index_path)}
+              %a.nav-link{:href => home_index_path} Dashboard
+            %li{:class => active_nav_class(users_path)}
+              %a.nav-link{:href => users_path} Users
+            %li{:class => active_nav_class(lodgings_path)}
+              %a.nav-link{:href => lodgings_path} Lodgings
+            %li.nav-item
+              %a.nav-link.disabled{:href => "#"} Attractions
+          %form.form-inline.my-2.my-lg-0.justify-content-center
+            = form_tag(lodgings_path, method: :get) do
+              = text_field_tag :term, params[:term], class: 'form-control mr-sm-2', placeholder: "search for lodging.." 
+              = submit_tag 'Search', class: 'button btn btn-outline-success my-2 my-sm-0'
+          %ul.navbar-nav.justify-content-end
+            %li.nav-item
+              %a.nav-link{:href => destroy_user_session_path, :method => :delete} #{current_user.email}
 
-    .container
-      .content
-        %br
-        = yield
+  .container
+    .content
+      %br
+      = yield
