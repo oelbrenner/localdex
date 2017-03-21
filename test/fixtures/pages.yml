@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content_header: MyString
+  content_one: MyString
+  content_two: MyString
+  type: 
+  active: false
+  lodging: one
+
+two:
+  content_header: MyString
+  content_one: MyString
+  content_two: MyString
+  type: 
+  active: false
+  lodging: two

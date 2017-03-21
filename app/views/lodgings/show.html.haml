@@ -1,69 +1,72 @@
 %p#notice= notice
 
-%p
-  %b Destination ref:
-  = @lodging.destination_ref
-%p
-  %b Region ref:
-  = @lodging.region_ref
-%p
-  %b Company name:
-  = @lodging.company_name
-%p
-  %b Address line one:
-  = @lodging.address_line_one
-%p
-  %b Address line two:
-  = @lodging.address_line_two
-%p
-  %b City:
-  = @lodging.city
-%p
-  %b State:
-  = @lodging.state
-%p
-  %b Zip:
-  = @lodging.zip
-%p
-  %b Phone:
-  = @lodging.phone
-%p
-  %b Reservation:
-  = @lodging.reservation
-%p
-  %b Fax:
-  = @lodging.fax
-%p
-  %b Url:
-  = @lodging.url
-%p
-  %b Contact:
-  = @lodging.contact
-%p
-  %b Season:
-  = @lodging.season
-%p
-  %b Email:
-  = @lodging.email
-%p
-  %b Details:
-  = @lodging.details
-%p
-  %b Mask2id ref:
-  = @lodging.mask2id_ref
-%p
-  %b Expires at:
-  = @lodging.expires_at
-%p
-  %b Paid at:
-  = @lodging.paid_at
-%p
-  %b Customer status notes:
-  = @lodging.customer_status_notes
-%p
-  %b User:
-  = @lodging.user
+%h1= @lodging.company_name
 
-= link_to 'Edit', edit_lodging_path(@lodging)
-\|
-= link_to 'Back', lodgings_path
+.row.col-lg-9.mt-3
+  %table.table.table-striped.table-bordered.table-responsive
+    %tr.table-success
+      %th Lodging Name
+      %th Region
+      %th{colspan: 5} Address
+    %tr
+      %td= @lodging.company_name
+      %td= @lodging.region_ref
+      %td= @lodging.address_line_one
+      %td= @lodging.address_line_two
+      %td= @lodging.city
+      %td= @lodging.state
+      %td= @lodging.zip
+
+.row.col-lg-10.mt-9
+  %table.table.table-striped.table-bordered.table-responsive
+    %tr.table-success
+      %th Phone:
+      %th Reservation:
+      %th Fax:
+      %th Url:
+      %th Contact:
+      %th Season:
+      %th Email:
+      %th Details:
+    %tr
+      %td= @lodging.phone
+      %td= @lodging.reservation
+      %td= @lodging.fax
+      %td= @lodging.url
+      %td= @lodging.contact
+      %td= @lodging.season
+      %td= @lodging.email
+      %td= @lodging.details
+
+
+.actions.mt-2
+  = link_to 'Edit lodging info', edit_lodging_path(@lodging), class: "btn btn-warning"
+  = link_to 'Back', lodgings_path, class: "btn btn-info"
+
+
+.row.mt-5 
+  %h2 Lodging Services
+
+.row.col-lg-10.mt-9
+  %table.table.table-striped.table-bordered.table-responsive
+    %tr.table-info
+      %th Service
+      %th Active ?
+      %th Subscription valid until
+      %th 
+    %tr
+      %td e-postcard
+      %td Yes
+      %td= distance_of_time_in_words(Time.now, 1.years.from_now )
+      %td
+        = link_to 'view page', page_path(1), class: "btn btn-success"
+        = link_to 'edit page', edit_page_path(1), class: "btn btn-warning"
+
+    %tr
+      %td Nearby Navigator
+      %td No
+      %td expired
+      %td= link_to 'enable page', page_path(2), class: "btn btn-danger"
+
+
+

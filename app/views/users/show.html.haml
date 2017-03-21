@@ -27,10 +27,7 @@
             %li= msg
     .field
       %br/
-      -# = f.collection_select :lodgings, Lodging.all , :id, :company_name
       = f.collection_select(:lodging_ids, Lodging.all, :id, :company_name, {:prompt => "select lodging"} )
-      -# select :country_ids, Country.collect{|c| [c.name, c.id]}, {}, {multiple: true}
-      -# = f.text_field :email
     
   
     .actions
