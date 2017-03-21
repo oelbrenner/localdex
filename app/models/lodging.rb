@@ -1,5 +1,6 @@
 class Lodging < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :pages
 
   def self.search(term)
     if term
