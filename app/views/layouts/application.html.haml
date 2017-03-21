@@ -30,7 +30,7 @@
               = submit_tag 'Search', class: 'button btn btn-outline-success my-2 my-sm-0'
           %ul.navbar-nav.justify-content-end
             %li.nav-item
-              %a.nav-link{:href => destroy_user_session_path, :method => :delete} #{current_user.email}
+              %a.nav-link{:href => destroy_user_session_path, :method => :delete} #{icon('user')}
 
   .container
     .content

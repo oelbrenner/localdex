@@ -10,15 +10,17 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'puma', '~> 3.0'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'sass-rails', '~> 5.0'
 gem 'haml-rails'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'font-awesome-sass', '~> 4.7.0'
+
 gem 'devise'
 gem 'devise_invitable'
 

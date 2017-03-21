@@ -16,9 +16,9 @@
         %td= user.email
         %td= user_status(user)
         %td= user.lodgings.first ?  user.lodgings.first.company_name : ''
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to icon('eye'), user, title: 'view this user'
+        %td= link_to icon('pencil'), edit_user_path(user), title: 'edit this user'
+        %td= link_to icon('trash'), user, title: 'delete this user',  :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 .actions
   = link_to 'Invite a New User', new_user_invitation_path, class: "btn btn-warning"
