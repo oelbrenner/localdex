@@ -57,16 +57,16 @@
     %tr
       %td e-postcard
       %td Yes
-      %td= distance_of_time_in_words(Time.now, 1.years.from_now )
+      %td= distance_of_time_in_words(Time.now, 1.years.from_now ) + " from now"
       %td
-        = link_to 'view page', page_path(1), class: "btn btn-success"
-        = link_to 'edit page', edit_page_path(1), class: "btn btn-warning"
+        = link_to 'view service', page_path(1), class: "btn btn-success"
+        = link_to 'edit service', edit_page_path(1), class: "btn btn-warning"
 
     %tr
       %td Nearby Navigator
       %td No
       %td expired
-      %td= link_to 'enable page', page_path(2), class: "btn btn-danger"
+      %td= link_to 'enable service', page_path(2), class: "btn btn-danger"
 
 
 

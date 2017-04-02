@@ -1,3 +1,8 @@
-%h1 Editing postcard page content
+%h1 Editing page content
+%h2 for service: #{@page.page_type}
 
-= render 'form'
+- case @page.page_type
+  - when 'e-postcard'
+    = render 'epostcard'
+  - when 'nearby-nav'
+    = render 'nearby_nav'

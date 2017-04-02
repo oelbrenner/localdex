@@ -25,6 +25,7 @@
 **.swo
 **.swn
 *.un~
+*.DS_Store
 
 
 public/webshims
