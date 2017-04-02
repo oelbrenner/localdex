@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320232247) do
+ActiveRecord::Schema.define(version: 20170402172148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 20170320232247) do
     t.string   "content_header"
     t.string   "content_one"
     t.string   "content_two"
-    t.string   "type"
+    t.string   "page_type",      default: "e-postcard"
     t.boolean  "active"
     t.integer  "lodging_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.index ["lodging_id"], name: "index_pages_on_lodging_id", using: :btree
   end
 
