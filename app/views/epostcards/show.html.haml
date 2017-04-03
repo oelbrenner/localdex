@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @epostcard.name
+%p
+  %b Main image:
+  = @epostcard.main_image
+%p
+  %b Page:
+  = @epostcard.page
+
+= link_to 'Edit', edit_epostcard_path(@epostcard)
+\|
+= link_to 'Back', epostcards_path

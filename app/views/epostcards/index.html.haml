@@ -1,0 +1,25 @@
+%h1 Listing epostcards
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Main image
+      %th Page
+      %th
+      %th
+      %th
+
+  %tbody
+    - @epostcards.each do |epostcard|
+      %tr
+        %td= epostcard.name
+        %td= epostcard.main_image
+        %td= epostcard.page
+        %td= link_to 'Show', epostcard
+        %td= link_to 'Edit', edit_epostcard_path(epostcard)
+        %td= link_to 'Destroy', epostcard, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Epostcard', new_epostcard_path

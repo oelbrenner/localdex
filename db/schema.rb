@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402172148) do
+ActiveRecord::Schema.define(version: 20170402184548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "epostcards", force: :cascade do |t|
+    t.text     "name"
+    t.text     "main_image"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_epostcards_on_page_id", using: :btree
+  end
 
   create_table "lodgings", force: :cascade do |t|
     t.string   "destination_ref"
@@ -82,5 +91,6 @@ ActiveRecord::Schema.define(version: 20170402172148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "epostcards", "pages"
   add_foreign_key "pages", "lodgings"
 end

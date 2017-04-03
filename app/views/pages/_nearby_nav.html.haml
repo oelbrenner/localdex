@@ -7,14 +7,6 @@
           %li= msg
 
   .field
-    %b Post Card Page header:
-    %br
-    = f.text_area :content_header,  :cols => 50, :rows => 3 
-  .field
-    %p section one content:
-    = f.text_area :content_one,  :cols => 50, :rows => 3 
-  .field
     %p section two content:
-    = f.text_area :content_two,  :cols => 50, :rows => 3 
   .actions
     = f.submit 'Save', class: "btn btn-success"

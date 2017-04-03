@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+page_one:
   content_header: MyString
   content_one: MyString
   content_two: MyString
-  type: 
+  page_type: 
   active: false
   lodging: one
 
@@ -12,6 +12,6 @@ two:
   content_header: MyString
   content_one: MyString
   content_two: MyString
-  type: 
+  page_type: 
   active: false
   lodging: two

@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   layout 'page'
 
   def show
+    @epostcards = @page.epostcards.where.not(id:  nil)
+    @new_epostcard = Epostcard.new
   end
 
   def edit
@@ -50,6 +52,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:content_header, :content_one, :content_two, :type, :active, :lodging_id)
+      params.require(:page).permit(:content_header, :content_one, :content_two, :page_type, :active, :lodging_id)
+      params.require(:page).permit(:content_header, :content_one, :content_two, :page_type, :active, :lodging_id, epostcards_attributes: [:id, :name, :main_image,  :_destroy])
     end
 end

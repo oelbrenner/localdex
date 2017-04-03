@@ -17,7 +17,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create page" do
     assert_difference('Page.count') do
-      post pages_url, params: { page: { active: @page.active, content_header: @page.content_header, content_one: @page.content_one, content_two: @page.content_two, lodging_id: @page.lodging_id, type: @page.type } }
+      post pages_url, params: { page: { active: @page.active, content_header: @page.content_header, content_one: @page.content_one, content_two: @page.content_two, lodging_id: @page.lodging_id, page_type: @page.page_type } }
     end
 
     assert_redirected_to page_url(Page.last)
@@ -34,7 +34,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update page" do
-    patch page_url(@page), params: { page: { active: @page.active, content_header: @page.content_header, content_one: @page.content_one, content_two: @page.content_two, lodging_id: @page.lodging_id, type: @page.type } }
+    patch page_url(@page), params: { page: { active: @page.active, content_header: @page.content_header, content_one: @page.content_one, content_two: @page.content_two, lodging_id: @page.lodging_id, page_type: @page.page_type } }
     assert_redirected_to page_url(@page)
   end
 
