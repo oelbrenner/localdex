@@ -17,23 +17,23 @@
         = link_to 'Select this postcard', pages_path, class: "btn btn-primary"
 
 
-
-%h5.mt-5 Add an e-postcard:
-
-= form_for @new_epostcard do |f|
-  - if @new_epostcard.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@new_epostcard.errors.count, "error")} prohibited this epostcard from being saved:"
-      %ul
-        - @epostcard.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    %p e-postcard title
-    = f.text_field :name
-  .field
-    %p Image URL:
-    = f.text_field :main_image
-    = f.hidden_field :page_id, :value => @page.id
-  .actions.mt-4
-    = f.submit 'Create new e-postcard', class: "btn btn-success"
+- if current_user
+  %h5.mt-5 Add an e-postcard:
+  
+  = form_for @new_epostcard do |f|
+    - if @new_epostcard.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@new_epostcard.errors.count, "error")} prohibited this epostcard from being saved:"
+        %ul
+          - @epostcard.errors.full_messages.each do |msg|
+            %li= msg
+  
+    .field
+      %p e-postcard title
+      = f.text_field :name
+    .field
+      %p Image URL:
+      = f.text_field :main_image
+      = f.hidden_field :page_id, :value => @page.id
+    .actions
+      = f.submit 'Create new e-postcard', class: "btn btn-success"

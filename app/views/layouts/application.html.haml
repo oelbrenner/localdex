@@ -24,13 +24,25 @@
               %a.nav-link{:href => lodgings_path} Lodgings
             %li.nav-item
               %a.nav-link.disabled{:href => "#"} Attractions
-          %form.form-inline.my-2.my-lg-0.justify-content-center
+          %ul.nav.justify-content-center
+            %li.nav-item.dropdown
+              %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#", "aria-haspopup" => "true", "aria-expanded" => "false"} 
+                =current_user.email #{icon('user')}
+              %ul.dropdown-menu{"role" => "menu"}
+                %li
+                  %a.dropdown-item{:href => user_path(current_user)} 
+                    My account
+                  %a.dropdown-item{:href => user_path(current_user)} 
+                    Change password
+                  .dropdown-divider
+                  -# %a.dropdown-item{:href => "#link3"} 
+                  %a.dropdown-item{:href => destroy_user_session_path, :method => :delete}
+                    Log Out
+
+          %form.form-inline.my-2.my-lg-0.justify-content-end
             = form_tag(lodgings_path, method: :get) do
               = text_field_tag :term, params[:term], class: 'form-control mr-sm-2', placeholder: "search for lodging.." 
               = submit_tag 'Search', class: 'button btn btn-outline-success my-2 my-sm-0'
-          %ul.navbar-nav.justify-content-end
-            %li.nav-item
-              %a.nav-link{:href => destroy_user_session_path, :method => :delete} #{icon('user')}
 
   .container
     .content
