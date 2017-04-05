@@ -7,6 +7,7 @@ class LodgingsController < ApplicationController
   end
 
   def show
+    @epostcard_page = @lodging.pages.where(page_type: "e-postcard").first
   end
 
   def new
@@ -58,6 +59,6 @@ class LodgingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lodging_params
-      params.require(:lodging).permit(:term, :destination_ref, :region_ref, :company_name, :address_line_one, :address_line_two, :city, :state, :zip, :phone, :reservation, :fax, :url, :contact, :season, :email, :details, :mask2id_ref, :expires_at, :paid_at, :customer_status_notes, :user_id)
+      params.require(:lodging).permit(:destination_ref, :region_ref, :company_name, :address_line_one, :address_line_two, :city, :state, :zip, :phone, :reservation, :fax, :url, :contact, :season, :email, :details, :mask2id_ref, :expires_at, :paid_at, :customer_status_notes, :user_id)
     end
 end

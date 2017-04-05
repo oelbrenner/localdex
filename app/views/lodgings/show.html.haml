@@ -59,8 +59,11 @@
       %td Yes
       %td= distance_of_time_in_words(Time.now, 1.years.from_now ) + " from now"
       %td
-        = link_to 'view service', page_path(1), class: "btn btn-success"
-        = link_to 'edit service', edit_page_path(1), class: "btn btn-warning"
+        -if @epostcard_page.present?
+          = link_to 'view service', page_path(@epostcard_page.id), class: "btn btn-success"
+          = link_to 'edit service', edit_page_path(1), class: "btn btn-warning"
+        -else
+          = link_to 'enable service', page_path(2), class: "btn btn-danger"
 
     %tr
       %td Nearby Navigator

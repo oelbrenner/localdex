@@ -27,7 +27,7 @@
           %ul.nav.justify-content-center
             %li.nav-item.dropdown
               %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#", "aria-haspopup" => "true", "aria-expanded" => "false"} 
-                =current_user.email #{icon('user')}
+                =icon('user')
               %ul.dropdown-menu{"role" => "menu"}
                 %li
                   %a.dropdown-item{:href => user_path(current_user)} 
