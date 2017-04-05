@@ -14,7 +14,7 @@
     - @epostcards.each do |epostcard|
       %tr
         %td= epostcard.name
-        %td= epostcard.main_image
+        %td epostcard.main_image
         %td= epostcard.page
         %td= link_to 'Show', epostcard
         %td= link_to 'Edit', edit_epostcard_path(epostcard)

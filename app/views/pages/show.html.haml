@@ -6,34 +6,12 @@
 %br
 
 -if @page.epostcards.any?
-  %h5.mt-5 Existing e-postcards:
   -@page.epostcards.each do |postcard|
     .media.mt-3
-      %img.d-flex.align-self-center.mr-3.epostcard-thumbnail{:alt => "Generic placeholder image", :src => postcard.main_image}
+      %img.d-flex.align-self-center.mr-3.epostcard-thumbnail{:alt => "Generic placeholder image", :src => postcard.main_image.thumb.url}
       .media-body
         %h5.mt-0=postcard.name
-        %p URL for this postcard: #{postcard.main_image.to_s}
         %p Click 'Select this postcard' below to send this e-postcard.
         = link_to 'Select this postcard', pages_path, class: "btn btn-primary"
 
 
-- if current_user
-  %h5.mt-5 Add an e-postcard:
-  
-  = form_for @new_epostcard do |f|
-    - if @new_epostcard.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@new_epostcard.errors.count, "error")} prohibited this epostcard from being saved:"
-        %ul
-          - @epostcard.errors.full_messages.each do |msg|
-            %li= msg
-  
-    .field
-      %p e-postcard title
-      = f.text_field :name
-    .field
-      %p Image URL:
-      = f.text_field :main_image
-      = f.hidden_field :page_id, :value => @page.id
-    .actions
-      = f.submit 'Create new e-postcard', class: "btn btn-success"

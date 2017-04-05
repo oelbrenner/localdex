@@ -5,14 +5,15 @@ class PagesController < ApplicationController
 
   def show
     @epostcards = @page.epostcards.where.not(id:  nil)
-    @new_epostcard = Epostcard.new
   end
 
   def edit
+    @new_epostcard = Epostcard.new
   end
 
   def create
     @page = Page.new(page_params)
+    @new_epostcard = Epostcard.new
 
     respond_to do |format|
       if @page.save
