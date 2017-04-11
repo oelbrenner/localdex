@@ -18,3 +18,4 @@
     %p=@email.to_name
     %p=@email.from_name
 
+= link_to 'Send another one', page_path(@lodging.pages.where(page_type: "e-postcard").first)

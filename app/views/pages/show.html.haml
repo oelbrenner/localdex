@@ -8,10 +8,11 @@
 -if @page.epostcards.any?
   -@page.epostcards.each do |postcard|
     .media.mt-3
-      %img.d-flex.align-self-center.mr-3.epostcard-thumbnail{:alt => "Generic placeholder image", :src => postcard.main_image.thumb.url}
+      %img.d-flex.align-self-center.mr-3.epostcard-thumbnail{:alt => "postcard main image", :src => postcard.main_image.thumb.url}
       .media-body
         %h5.mt-0=postcard.name
         %p Click 'Select this postcard' below to send this e-postcard.
-        = link_to 'Select this postcard', pages_path, class: "btn btn-primary"
+        postcard id: #{postcard.id} lodging id: #{@lodging.id}
+        = link_to 'Select this postcard', new_email_path(:pid => postcard.id, :lid => @lodging.id), class: "btn btn-primary"
 
 

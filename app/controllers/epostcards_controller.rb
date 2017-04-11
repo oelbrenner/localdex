@@ -1,29 +1,25 @@
 class EpostcardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_epostcard, only: [:show, :edit, :update, :destroy]
+  layout 'epostcard'
 
-  # GET /epostcards
-  # GET /epostcards.json
   def index
     @epostcards = Epostcard.all
   end
 
-  # GET /epostcards/1
-  # GET /epostcards/1.json
   def show
+    # make some sample data for the previews
+    @lodging = Lodging.first
+    @email = Email.first
   end
 
-  # GET /epostcards/new
   def new
     @epostcard = Epostcard.new
   end
 
-  # GET /epostcards/1/edit
   def edit
   end
 
-  # POST /epostcards
-  # POST /epostcards.json
   def create
     @epostcard = Epostcard.new(epostcard_params)
 
@@ -38,8 +34,6 @@ class EpostcardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /epostcards/1
-  # PATCH/PUT /epostcards/1.json
   def update
     respond_to do |format|
       if @epostcard.update(epostcard_params)
@@ -52,8 +46,6 @@ class EpostcardsController < ApplicationController
     end
   end
 
-  # DELETE /epostcards/1
-  # DELETE /epostcards/1.json
   def destroy
     @epostcard.destroy
     respond_to do |format|

@@ -1,0 +1,26 @@
+= form_for @email do |f|
+  - if @email.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@email.errors.count, "error")} prohibited this email from being saved:"
+      %ul
+        - @email.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    %h4 What is your name?
+    = f.text_field :from_name, class: 'form-control'
+    %h4 and your email address ?
+    = f.text_field :from_email, class: 'form-control'
+  .form-group
+    %h4 Who are you sending this postcard to?
+    = f.text_field :to_name, class: 'form-control'
+    %h4 What is thier e-mail ?
+    = f.text_field :to_email, class: 'form-control'
+  .form-group
+    %h4 Enter your message here:
+    = f.text_area :message, class: 'form-control', rows: '10'
+  .actions
+    = f.hidden_field :epostcard_id, :value => (params[:pid])
+    = f.hidden_field :lodging_id, :value => (params[:lid])
+    =(params[:pid])
+    =(params[:lid])
+    = f.submit 'Send e-postcard ! ', class: 'btn btn-success'

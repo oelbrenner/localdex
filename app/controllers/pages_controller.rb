@@ -3,8 +3,12 @@ class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   layout 'page'
 
+  def new
+  end
+
   def show
     @epostcards = @page.epostcards.where.not(id:  nil)
+    @lodging = @page.lodging
   end
 
   def edit

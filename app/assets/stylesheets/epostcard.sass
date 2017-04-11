@@ -1,0 +1,91 @@
+@import "bootstrap"
+
+@font-face 
+  font-family: 'Goudy Bookletter 1911'
+  font-style: normal
+  font-weight: 400
+  src: local('Goudy Bookletter 1911'), local('GoudyBookletter1911'), url(http://fonts.gstatic.com/s/goudybookletter1911/v6/l5lwlGTN3pEY5Bf-rQEuIGVBl2AFjWtoqJV4hiuZ3U2glnMp3_3A8V8Ai8YosRtX.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+@font-face 
+  font-family: 'Meddon'
+  font-style: normal
+  font-weight: 400
+  src: local('Meddon'), url(http://fonts.gstatic.com/s/meddon/v9/92rIAJ9uYlu3l6F7XUQaZOvvDin1pK8aKteLpeZ5c0A.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+	
+
+
+#postcardback 
+  width: 949px
+  min-height: 600px
+  max-height: 600px
+  margin-top: 50px 20px
+  background-color: #F7F0EA
+  background-image: url(old-paper.jpg) 
+
+#postcardbackheader 
+  display: inline
+  font-family: 'Goudy Bookletter 1911', serif
+  font-size: 78px
+  color: #A19182
+  width: 949px
+  margin-left: 180px
+  text-align:center
+  // border: 1px solid red
+
+#postcardbacklodging 
+  font-family: 'Goudy Bookletter 1911', serif
+  font-size: 28px
+  color: #A19182
+  width: 450px
+  margin-left: 30px
+  text-align:center
+  border-bottom: 1px dotted black
+  // border: 1px solid red
+
+#postcardbackstamp 
+  position: absolute
+  left: 500px
+  top: 650px
+  width: 230px
+  // border: 1px solid red
+  color: #A19182
+
+#to_from_title
+  position: absolute
+  left: 500px
+  top: 850px
+  width: 80px
+  height: 200px
+  font-family: 'Goudy Bookletter 1911', serif
+  font-size: 30px
+  color: #A19182
+  // border: 1px solid red
+
+#to_from
+  position: absolute
+  left: 580px
+  top: 850px
+  width: 300px
+  height: 200px
+  font-family: 'Meddon'
+  font-size: 25px
+  -moz-transform: rotate(2deg) 
+  -webkit-transform: rotate(2deg)
+  -o-transform: rotate(2deg)
+  -ms-transform: rotate(2deg)
+  // border: 1px solid blue
+
+#message p 
+  width: 480px
+  font-family: 'Meddon'
+  font-size: 20px 
+  -moz-transform: rotate(2deg) 
+  -webkit-transform: rotate(2deg)
+  -o-transform: rotate(2deg)
+  -ms-transform: rotate(2deg)
+  transform: rotate(2deg) 
+  padding-top: 15px
+  padding-left: 13px
+  // border: 1px solid blue

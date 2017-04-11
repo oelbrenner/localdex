@@ -1,0 +1,24 @@
+%h1 email log
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th From email
+      %th To email
+      %th Sent at
+      %th Failed at
+      %th Attempt count
+      %th Epostcard
+      %th Lodging
+
+  %tbody
+    - @emails.each do |email|
+      %tr
+        %td= email.from_email
+        %td= email.to_email
+        %td= email.sent_at
+        %td= email.failed_at
+        %td= email.attempt_count
+        %td= email.epostcard.id if @epostcard
+        %td= email.lodging.id if @lodging
+

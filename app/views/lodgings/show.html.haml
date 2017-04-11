@@ -44,7 +44,7 @@
   = link_to 'Back', lodgings_path, class: "btn btn-info"
 
 
-.row.mt-5 
+.row.mt-5
   %h2 Lodging Services
 
 .row.col-lg-10.mt-9
@@ -53,7 +53,7 @@
       %th Service
       %th Active ?
       %th Subscription valid until
-      %th 
+      %th
     %tr
       %td e-postcard
       %td Yes
@@ -61,9 +61,9 @@
       %td
         -if @epostcard_page.present?
           = link_to 'view service', page_path(@epostcard_page.id), class: "btn btn-success"
-          = link_to 'edit service', edit_page_path(1), class: "btn btn-warning"
+          = link_to 'edit service', edit_page_path(@epostcard_page.id), class: "btn btn-warning"
         -else
-          = link_to 'enable service', page_path(2), class: "btn btn-danger"
+          = link_to 'enable service', new_page_path(@lodging), class: "btn btn-danger"
 
     %tr
       %td Nearby Navigator
