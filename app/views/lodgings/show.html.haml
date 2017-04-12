@@ -63,7 +63,7 @@
           = link_to 'view service', page_path(@epostcard_page.id), class: "btn btn-success"
           = link_to 'edit service', edit_page_path(@epostcard_page.id), class: "btn btn-warning"
         -else
-          = link_to 'enable service', new_page_path(@lodging), class: "btn btn-danger"
+          = link_to 'enable service', new_page_path(lodging_id: @lodging.id), class: "btn btn-danger"
 
     %tr
       %td Nearby Navigator
