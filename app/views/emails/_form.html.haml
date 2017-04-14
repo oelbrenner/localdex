@@ -1,26 +1,36 @@
-= form_for @email do |f|
-  - if @email.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@email.errors.count, "error")} prohibited this email from being saved:"
-      %ul
-        - @email.errors.full_messages.each do |msg|
-          %li= msg
-  .form-group
-    %h4 What is your name?
-    = f.text_field :from_name, class: 'form-control'
-    %h4 and your email address ?
-    = f.text_field :from_email, class: 'form-control'
-  .form-group
-    %h4 Who are you sending this postcard to?
-    = f.text_field :to_name, class: 'form-control'
-    %h4 What is thier e-mail ?
-    = f.text_field :to_email, class: 'form-control'
-  .form-group
-    %h4 Enter your message here:
-    = f.text_area :message, class: 'form-control', rows: '10'
-  .actions
-    = f.hidden_field :epostcard_id, :value => (params[:pid])
-    = f.hidden_field :lodging_id, :value => (params[:lid])
-    =(params[:pid])
-    =(params[:lid])
-    = f.submit 'Send e-postcard ! ', class: 'btn btn-success'
+.row
+  .col-lg-5
+    = form_for @email do |f|
+      - if @email.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@email.errors.count, "error")} prohibited this email from being saved:"
+          %ul
+            - @email.errors.full_messages.each do |msg|
+              %li= msg
+      .form-group
+        %h4 What is your name?
+        = f.text_field :from_name, class: 'form-control'
+        %h4 and your email address ?
+        = f.text_field :from_email, class: 'form-control'
+      .form-group
+        %h4 Who are you sending this postcard to?
+        = f.text_field :to_name, class: 'form-control'
+        %h4 What is thier e-mail ?
+        = f.text_field :to_email, class: 'form-control'
+      .form-group
+        %h4 Enter your message here:
+        = f.text_area :message, class: 'form-control', rows: '10'
+      .form-check
+        .form-check-label
+          = f.check_box :opt_in, class: 'form-check-input'
+          .small-text
+            Yes, I would like to receive special offers from this hotel
+      .actions
+        = f.hidden_field :epostcard_id, :value => (params[:pid])
+        = f.hidden_field :lodging_id, :value => (params[:lid])
+        = link_to "Go Back", :back,  class: 'btn btn-warning' 
+        = f.submit 'Preview your card', class: 'btn btn-success'
+
+  .col-lg-5.email-compose-right
+    =image_tag @epostcard.main_image.thumb.url
+    =image_tag 'postcard-back-sample-thumb.png', :size => "333x200"

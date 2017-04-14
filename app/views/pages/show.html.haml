@@ -1,4 +1,4 @@
-%h1= @page.content_header
+%h1.page-header= @page.content_header
 %h5= @page.content_one
 =@page.content_two
 
@@ -7,10 +7,11 @@
 -if @page.epostcards.any?
   -@page.epostcards.each do |postcard|
     .media.mt-3
-      %img.d-flex.align-self-center.mr-3.epostcard-thumbnail{:alt => "postcard main image", :src => postcard.main_image.thumb.url}
+      =link_to image_tag(postcard.main_image.thumb.url,  class: "d-flex align-self-center mr-3 epostcard-thumbnail"), postcard.main_image.url
       .media-body
         %h5.mt-0=postcard.name
         %p Click 'Select this postcard' below to send this e-postcard.
+        %p click image to preview
         = link_to 'Select this postcard', new_email_path(:pid => postcard.id, :lid => @lodging.id), class: "btn btn-primary"
 
 
