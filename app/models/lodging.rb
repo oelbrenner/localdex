@@ -11,4 +11,8 @@ class Lodging < ApplicationRecord
     end
   end
 
+  def display_address
+    [address_line_one, address_line_two, city, state].join(' ')
+  end
+
 end

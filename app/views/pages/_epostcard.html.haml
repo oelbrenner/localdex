@@ -1,43 +1,61 @@
-%h5.mt-5 Update epostcard page headers and content
+.row
+  .col-sm-6
+    %h5.mt-5 Update epostcard page headers and content
+    %hr
+    
+    = form_for @page do |f|
+      - if @page.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+          %ul
+            - @page.errors.full_messages.each do |msg|
+              %li= msg
+    
+      .field
+        %b Post Card Page header:
+        %br
+        = f.text_area :content_header,  :cols => 50, :rows => 3 
+      .field
+        %p section one content:
+        = f.text_area :content_one,  :cols => 50, :rows => 3 
+      .field
+        %p section two content:
+        = f.text_area :content_two,  :cols => 50, :rows => 3 
+      .actions
+        = f.submit 'Update This content', class: "btn btn-warning"
 
-= form_for @page do |f|
-  - if @page.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
-      %ul
-        - @page.errors.full_messages.each do |msg|
-          %li= msg
 
-  .field
-    %b Post Card Page header:
-    %br
-    = f.text_area :content_header,  :cols => 50, :rows => 3 
-  .field
-    %p section one content:
-    = f.text_area :content_one,  :cols => 50, :rows => 3 
-  .field
-    %p section two content:
-    = f.text_area :content_two,  :cols => 50, :rows => 3 
-  .actions
-    = f.submit 'Save This content', class: "btn btn-success"
+  .col-sm-6
+    %h5.mt-5 e-postcards:
+    %hr
+    - @epostcards.each do |postcard|
 
+      =image_tag postcard.main_image.thumb.url
+      .row.mb-5.mt-2
+        .col-sm-4
+          %p= postcard.name
+        .col-sm-2
+          =link_to "delete this card", postcard,  :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-danger"
 
-%h5.mt-5 Add an e-postcard:
-
-= form_for @new_epostcard do |f|
-  - if @new_epostcard.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@new_epostcard.errors.count, "error")} prohibited this epostcard from being saved:"
-      %ul
-        - @epostcard.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    %p e-postcard title
-    = f.text_field :name
-  .field
-    %p Image URL:
-    = f.file_field :main_image
-    = f.hidden_field :page_id, :value => @page.id
-  .actions
-    = f.submit 'Create new e-postcard', class: "btn btn-success"
+    
+    
+    %h5.mt-5 add a new e-postcard:
+    %hr
+    
+    = form_for @new_epostcard do |f|
+      - if @new_epostcard.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@new_epostcard.errors.count, "error")} prohibited this epostcard from being saved:"
+          %ul
+            - @epostcard.errors.full_messages.each do |msg|
+              %li= msg
+    
+      .field
+        %p e-postcard title:
+        = f.text_field :name
+      .field
+        %p Select Image:
+        = f.file_field :main_image, class: "btn btn-default"
+        = f.hidden_field :page_id, :value => @page.id
+      .actions
+        = f.submit 'Create new e-postcard', class: "btn btn-success"

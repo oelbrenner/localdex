@@ -16,6 +16,7 @@ class EmailsController < ApplicationController
   def new
     @email = Email.new
     @epostcard = Epostcard.find((params[:pid]))
+    @lodging = Lodging.find((params[:lid]))
   end
 
   def create

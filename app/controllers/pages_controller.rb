@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def edit
     @new_epostcard = Epostcard.new
+    @epostcards = @page.epostcards
   end
 
   def new
@@ -47,7 +48,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to edit_page_path(@page), notice: 'successfully deleted.' }
       format.json { head :no_content }
     end
   end
