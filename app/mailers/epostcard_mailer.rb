@@ -1,5 +1,5 @@
 class EpostcardMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'info@touristmarketing.com'
  
   def epostcard_mail(email)
     @email = email
