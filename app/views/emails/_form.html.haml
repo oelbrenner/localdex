@@ -31,6 +31,7 @@
         .actions
           = f.hidden_field :epostcard_id, :value => (params[:pid])
           = f.hidden_field :lodging_id, :value => (params[:lid])
+          = f.hidden_field :send_token, :value => SecureRandom.urlsafe_base64(25)
           = link_to "Go Back", :back,  class: 'btn btn-warning' 
           = f.submit 'Preview your card', class: 'btn btn-success'
   
