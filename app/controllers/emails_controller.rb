@@ -3,10 +3,6 @@ class EmailsController < ApplicationController
 
   layout 'page'
 
-  def index
-    @emails = Email.all
-  end
-
   def show
     @lodging = Lodging.find(@email.lodging_id)
     @epostcard = Epostcard.find(@email.epostcard_id)
@@ -49,14 +45,6 @@ class EmailsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @email.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def destroy
-    @email.destroy
-    respond_to do |format|
-      format.html { redirect_to emails_url, notice: 'Email was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -1,4 +1,5 @@
 class LodgingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_lodging, only: [:show, :edit, :update, :destroy]
 
   def index

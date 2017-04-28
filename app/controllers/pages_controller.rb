@@ -45,14 +45,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def destroy
-    @page.destroy
-    respond_to do |format|
-      format.html { redirect_to edit_page_path(@page), notice: 'successfully deleted.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
