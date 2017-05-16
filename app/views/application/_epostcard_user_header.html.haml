@@ -1,12 +1,11 @@
-.jumbotron
-  .row
-    .col-sm-3
-      = image_tag 'guest-ecards-logo.jpg', :size => "220x200"
-    .col-sm-4
-      %h5 Email Our Postcards Or Make Your Own!
-      %h5 Share Your Fun And Memories With Friends And Relatives.
-      %h5 Send As Many As You Like!
-    .col-sm-4
-      %h2= @lodging.company_name
-      %h4= @lodging.display_address
+.row
+  .col-sm-3
+    = image_tag 'guest-ecards-logo.jpg', :size => "220x200"
+  .col-sm-4
+    %h5= @page.content_header
+    %h5= @page.content_one
+    %h5= @page.content_two
+  .col-sm-4
+    %h2= @lodging.company_name
+    %h4= @lodging.display_address
 
