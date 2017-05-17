@@ -1,7 +1,8 @@
 = render partial: "epostcard_user_header"
 .mt-5
-  %h1 Create a new postcard
-  .row
+  %h1 Create your postcard here
+  %hr
+  .row.mt-5
     .col-lg-5
       = form_for @email do |f|
         - if @email.errors.any?
@@ -11,17 +12,17 @@
               - @email.errors.full_messages.each do |msg|
                 %li= msg
         .form-group
-          %h4 What is your name?
+          %h4 Your name?
           = f.text_field :from_name, class: 'form-control'
-          %h4 and your email address ?
+          %h4 Your email address ?
           = f.text_field :from_email, class: 'form-control'
         .form-group
-          %h4 Who are you sending this postcard to?
+          %h4 Recipient's name ?
           = f.text_field :to_name, class: 'form-control'
-          %h4 What is thier e-mail ?
+          %h4 Recipient's e-mail address?
           = f.text_field :to_email, class: 'form-control'
         .form-group
-          %h4 Enter your message here:
+          %h4 Type your personal message:
           = f.text_area :message, class: 'form-control', rows: '10'
         .form-check
           .form-check-label
@@ -32,9 +33,11 @@
           = f.hidden_field :epostcard_id, :value => (params[:pid])
           = f.hidden_field :lodging_id, :value => (params[:lid])
           = f.hidden_field :send_token, :value => SecureRandom.urlsafe_base64(25)
-          = link_to "Go Back", :back,  class: 'btn btn-warning' 
-          = f.submit 'Preview your card', class: 'btn btn-success'
+          = link_to "Go back to all cards", :back,  class: 'btn btn-warning' 
+          = f.submit 'Preview and send your card', class: 'btn btn-success'
   
     .col-lg-5.email-compose-right
       =image_tag @epostcard.main_image.thumb.url
       =image_tag 'postcard-back-sample-thumb.png', :size => "333x200"
+  .row.mt-5
+    .col-lg-5

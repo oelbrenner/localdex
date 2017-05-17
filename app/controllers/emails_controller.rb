@@ -6,6 +6,7 @@ class EmailsController < ApplicationController
   def show
     @lodging = Lodging.find(@email.lodging_id)
     @epostcard = Epostcard.find(@email.epostcard_id)
+    @page = Page.find(@epostcard.page_id)
     render :layout => "epostcard"
   end
 
@@ -20,6 +21,7 @@ class EmailsController < ApplicationController
     @email = Email.new
     @epostcard = Epostcard.find((params[:pid]))
     @lodging = Lodging.find((params[:lid]))
+    @page = Page.find(@epostcard.page_id)
   end
 
   def create
@@ -27,7 +29,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        format.html { redirect_to email_path(@email, send_token: @email.send_token), notice: 'postcard was successfully created, click send below to send it!' }
+        format.html { redirect_to email_path(@email, send_token: @email.send_token) }
         format.json { render :show, status: :created, location: @email }
       else
         format.html { render :new }

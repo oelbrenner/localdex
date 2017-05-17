@@ -6,4 +6,7 @@
     - flash.each do |name, msg|
       = content_tag(:div, msg, class: "alert alert-info")
     = stylesheet_link_tag 'epostcard'
-  = yield
+  %hr
+  .container
+    .content
+      = yield
