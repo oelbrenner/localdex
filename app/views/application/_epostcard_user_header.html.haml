@@ -1,7 +1,8 @@
 .row
-  .col-sm-3
-    = image_tag 'guest-ecards-logo.jpg', :size => "220x200"
   .col-sm-4
+    = image_tag 'guest-ecards-logo.jpg', class: "img-fluid"
+  %br
+  .col-md-4
     %h5= @page.content_header
     %h5= @page.content_one
     %h5= @page.content_two
@@ -9,7 +10,7 @@
       Return to our website: 
       =link_to @lodging.url
 
-  .col-sm-4
+  .col-md-4
     %h2= @lodging.company_name
     %h4= @lodging.display_address
 

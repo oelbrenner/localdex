@@ -2,30 +2,30 @@
 - if params.has_key?(:send_token)
   = render partial: "epostcard_user_header"
   .row
-    .col-sm-2.mt-5
-    .col-sm-2.mt-5
-      = link_to link_to "go back and edit", :back, class: "btn btn-warning"
-    .col-sm-2.mt-5
-      = link_to 'deliver it !', deliver_epostcard_path(:id => @email.id), class: "btn btn-success"
+    -# .col-sm-4.mt-5
+    .col-sm-7.mt-5
+      = link_to link_to "go back and edit", :back, class: "btn btn-lg btn-warning"
+      = link_to 'deliver it !', deliver_epostcard_path(:id => @email.id), class: "btn btn-lg btn-success"
 
 %br
-=image_tag @epostcard.main_image.url, :size => "949x600"
-
-#postcardback
-  #postcardbackheader
-    \-Postcard-
-  #postcardbacklodging
-    =@lodging.company_name
-    =@lodging.address_line_one
-    =[@lodging.city, @lodging.state].join(' ')
-  #postcardbackstamp
-    =image_tag('postmark-image.png', :size => "360x180")
-  #message
-    %p=@email.message
-  #to_from_title
-    %p To:
-    %p From:
-  #to_from
-    %p=@email.to_name
-    %p=@email.from_name
-
+.row
+  =image_tag @epostcard.main_image.url, :size => "949x600"
+  #postcardback
+    #postcardbackheader
+      \-Postcard-
+    #postcardbacklodging
+      =@lodging.company_name
+      =@lodging.address_line_one
+      =[@lodging.city, @lodging.state].join(' ')
+    #postcardbackstamp
+      -# =image_tag('postmark-image.png', :size => "360x180")
+      =image_tag('postmark-image.png', class: 'img-fluid')
+    #message
+      %p=@email.message
+    #to_from_title
+      %p To:
+      %p From:
+    #to_from
+      %p=@email.to_name
+      %p=@email.from_name
+  
