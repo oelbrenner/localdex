@@ -5,6 +5,10 @@
     %h5= @page.content_header
     %h5= @page.content_one
     %h5= @page.content_two
+    %h5
+      Return to our website: 
+      =link_to @lodging.url
+
   .col-sm-4
     %h2= @lodging.company_name
     %h4= @lodging.display_address
