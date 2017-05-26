@@ -8,8 +8,7 @@
       =link_to image_tag(postcard.main_image.thumb.url,  class: "d-flex align-self-center mr-3 epostcard-thumbnail"), postcard.main_image.url
       .media-body
         %h5.mt-0=postcard.name
-        %p Click 'Select this postcard' below to send this e-postcard.
-        %p click image to preview
-        = link_to 'Select this postcard', new_email_path(:pid => postcard.id, :lid => @lodging.id), class: "btn btn-primary"
+        %p Click Image To Preview
+        = link_to 'Select This Postcard', new_email_path(:pid => postcard.id, :lid => @lodging.id), class: "btn btn-primary"
 
 

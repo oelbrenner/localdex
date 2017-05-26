@@ -12,14 +12,14 @@
               - @email.errors.full_messages.each do |msg|
                 %li= msg
         .form-group
-          %h4 Your name?
+          %h4 Your name
           = f.text_field :from_name, class: 'form-control'
-          %h4 Your email address ?
+          %h4 Your email address
           = f.text_field :from_email, class: 'form-control'
         .form-group
-          %h4 Recipient's name ?
+          %h4 Recipient's name
           = f.text_field :to_name, class: 'form-control'
-          %h4 Recipient's e-mail address?
+          %h4 Recipient's e-mail address
           = f.text_field :to_email, class: 'form-control'
         .form-group
           %h4 Type your personal message:
@@ -27,14 +27,13 @@
         .form-check
           .form-check-label
             = f.check_box :opt_in, class: 'form-check-input'
-            .small-text
-              Yes, I would like to receive special offers from this hotel
+            Yes, I would like to receive special offers from this hotel
         .actions
           = f.hidden_field :epostcard_id, :value => (params[:pid])
           = f.hidden_field :lodging_id, :value => (params[:lid])
           = f.hidden_field :send_token, :value => SecureRandom.urlsafe_base64(25)
-          = link_to "Go back to all cards", :back,  class: 'btn btn-warning' 
-          = f.submit 'Preview and send your card', class: 'btn btn-success'
+          = link_to "Go back to all cards", :back,  class: 'btn btn-lg btn-warning mt-3' 
+          = f.submit 'Preview and send your card', class: 'btn btn-lg btn-success mt-3'
   
     .col-lg-5.email-compose-right
       =image_tag @epostcard.main_image.thumb.url
